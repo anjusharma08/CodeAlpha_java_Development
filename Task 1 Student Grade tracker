@@ -1,0 +1,52 @@
+import java.util.Scanner;
+public class Task1 {  
+//calculate Avarage grade of students                  
+private static double calculateAvg(int[] grades){
+    int sum=0;
+    for(int grade:grades){
+        sum+=grade;
+    }
+    return(double)sum/grades.length;
+}
+ //calculate Highest grade of students                   
+private static int calculateHigestScore(int [] grades){
+    int Highest=grades[0];
+    for(int grade:grades){
+       if(grade>Highest){
+        Highest=grade;
+       }
+    }
+    return Highest;
+}
+//calculate Lowest grade of students   
+private static int calculatelowestscore(int [] grades){
+    int lowest=grades[0];
+    for(int grade:grades){
+        if(grade<lowest){
+        lowest =grade;
+        }
+    }
+    return lowest;
+}
+
+ public static void main(String [] args){
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter the number of Students:- ");
+int numStu=sc.nextInt();
+
+int[] grades=new int[numStu];
+//Enter the Student grades
+for(int i=0;i<numStu;i++){
+    System.out.println("Enter thr grade for student "+(i+1)+":");
+    grades[i]=sc.nextInt();
+}
+double avarage=calculateAvg(grades);
+int higestscore=calculateHigestScore(grades);
+int lowestscore=calculatelowestscore(grades);
+
+System.out.println("Average Score:- "+avarage);
+System.out.println("Highest Score:- "+higestscore);
+System.out.println("Lowest Score:- "+lowestscore);
+sc.close();
+}
+}
