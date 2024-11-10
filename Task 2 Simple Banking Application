@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class Task2 {
+    private static double balance = 0;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int choice;
+        do {
+            System.out.println("1. Deposit");
+            System.out.println("2. Withdraw");
+            System.out.println("3. Check Balance");
+            System.out.println("4. Exit");
+            System.out.println("Enter your choice: ");
+
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    Deposit(sc);
+                    break;
+                case 2:
+                    withdraw(sc);
+                    break;
+                case 3:
+                    checkBalance();
+                    break;
+                case 4:
+                    System.out.println("Exiting the program. Goodbye!!");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a valid option.");
+            }
+
+        } while (choice != 4);
+        sc.close();
+    }
+
+    private static void Deposit(Scanner sc) {
+        System.out.println("Enter the amount to Deposit:= ");
+        double amount = sc.nextDouble();
+        balance += amount;
+        System.out.println("Deposit Successful. Current balance: Rs " + balance);
+    }
+
+    private static void withdraw(Scanner sc) {
+        System.out.println("Enter the amount to withdraw: ");
+        double amount = sc.nextDouble();
+
+        if (amount > balance) {
+            System.out.println("Insufficient funds. Withdrawal failed.");
+        } else {
+            balance -= amount;
+            System.out.println("Withdrawal successful. Current balance: Rs " + balance);
+        }
+    }
+
+    private static void checkBalance() {
+        System.out.println("Current balance: Rs " + balance);
+    }
+}
